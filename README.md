@@ -105,7 +105,8 @@ sodium, sweeteners, additives) and the safety vetoes. Details: [nutrition engine
 
 ## The catalogue
 
-Healthier swaps come from a curated catalogue of **998 packaged products in 31 categories**, built from
+Healthier swaps come from a curated catalogue of **998 packaged products in 31 categories** (the database
+edition; the on-device 3.9.0 build bundles the earlier 973-product version), built from
 [Open Food Facts](https://world.openfoodfacts.org) records with a 2025-or-later label photo. A small number of
 label drafts were read from pack photos and cross-checked. Every product is graded by the same engine the app
 uses, so a swap is shown only when it is healthier by the app's own rules. All records stay marked as drafts
