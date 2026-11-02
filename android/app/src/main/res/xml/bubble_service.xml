@@ -1,0 +1,17 @@
+<!--
+  packageNames is the operating system's own filter: Android delivers this service events only from
+  the apps listed here, so nothing that happens in any other app (messages, banking, photos, the
+  keyboard) ever reaches BetterChoice. It must match ForegroundPolicy.SUPPORTED exactly; a unit
+  test and tools/verify_release.py both fail if the two drift apart.
+-->
+<accessibility-service xmlns:android="http://schemas.android.com/apk/res/android"
+    android:description="@string/service_description"
+    android:packageNames="com.grofers.customerapp,com.zeptoconsumerapp,in.swiggy.android,in.swiggy.android.instamart,com.application.zomato,com.flipkart.android"
+    android:accessibilityEventTypes="typeWindowStateChanged|typeWindowsChanged|typeWindowContentChanged|typeViewScrolled"
+    android:accessibilityFeedbackType="feedbackGeneric"
+    android:accessibilityFlags="flagRetrieveInteractiveWindows"
+    android:canRetrieveWindowContent="true"
+    android:canTakeScreenshot="true"
+    android:notificationTimeout="0"
+    android:isAccessibilityTool="false"
+    android:settingsActivity="com.betterchoice.android.OnboardingActivity" />

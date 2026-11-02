@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Dark palette, used automatically when the phone is in dark mode.
+  Not a simple inversion: surfaces stay slightly green-tinted so the brand still reads, and the
+  accent green is lightened so text on the dark background keeps a comfortable contrast ratio.
+  Text on a green fill flips to near-black, because a bright fill needs dark text, not white.
+-->
+<resources>
+    <color name="bc_ink">#FFE6EDE7</color>
+    <color name="bc_muted">#FF9BAEA2</color>
+    <color name="bc_paper">#FF0E1411</color>
+    <color name="bc_surface">#FF18211C</color>
+    <color name="bc_line">#FF2B352E</color>
+    <color name="bc_green">#FF7BD9A4</color>
+    <color name="bc_on_green">#FF06110A</color>
+    <color name="bc_lime">#FF24331D</color>
+    <color name="bc_lime_deep">#FF35492A</color>
+    <color name="bc_sage">#FF6E7F5A</color>
+    <color name="bc_warm">#FFD98A63</color>
+    <color name="bc_disabled">#FF262E28</color>
+    <color name="bc_disabled_text">#FF7C8880</color>
+    <!-- Stays a deep red in dark mode: this is a filled banner with white text on it, so a light
+         red would drop the contrast below what small type needs. -->
+    <!-- Green text for what is good about a product (contrast above 4.5:1 on the card). -->
+    <color name="bc_good">#FF7EE2A0</color>
+    <!-- Light red text for what counts against a product: readable on the dark card. -->
+    <color name="bc_bad">#FFFF8A80</color>
+    <color name="bc_warning">#FFB03A2C</color>
+    <!-- The first-page artwork is light in both themes; the system launch screen matches it
+         so there is no dark-to-light flash before the splash appears. -->
+    <color name="bc_splash_background">#FFFEFDFC</color>
+</resources>

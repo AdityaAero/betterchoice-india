@@ -1,0 +1,47 @@
+{
+  "incoming": [
+    "tools\\curate_swaps.py",
+    "tools\\zepto_audit\\compare.py",
+    "tools\\zepto_audit\\crawl.py",
+    "app\\src\\test\\java\\com\\betterchoice\\android\\OpenFoodFactsTest.java",
+    "app\\src\\test\\java\\com\\betterchoice\\android\\ZeptoAuditHarness.java",
+    "app\\src\\main\\java\\com\\betterchoice\\android\\Beverage.java",
+    "app\\src\\main\\java\\com\\betterchoice\\android\\DebugLog.java",
+    "app\\src\\main\\java\\com\\betterchoice\\android\\LabelEvidence.java",
+    "app\\src\\main\\java\\com\\betterchoice\\android\\NutriGrade.java",
+    "app\\src\\main\\java\\com\\betterchoice\\android\\OpenFoodFacts.java",
+    "app\\src\\main\\java\\com\\betterchoice\\android\\PackScanner.java",
+    "app\\src\\main\\java\\com\\betterchoice\\android\\ScreenReader.java",
+    "app\\src\\main\\java\\com\\betterchoice\\android\\ScreenText.java",
+    "app\\src\\main\\assets\\catalogue\\swaps_v1.json"
+  ],
+  "merged": [
+    "app\\src\\main\\java\\com\\betterchoice\\android\\BubbleService.java",
+    "app\\src\\main\\java\\com\\betterchoice\\android\\GradeResult.java",
+    "app\\src\\main\\java\\com\\betterchoice\\android\\IngredientFacts.java",
+    "app\\src\\main\\java\\com\\betterchoice\\android\\LabelBasis.java"
+  ],
+  "conflicts": [],
+  "new": [
+    "tools\\zepto_audit\\flipkart.py",
+    "tools\\zepto_audit\\photo_report.py",
+    "tools\\zepto_audit\\recrawl.py",
+    "tools\\zepto_audit\\try_one.py",
+    "app\\src\\test\\java\\com\\betterchoice\\android\\FlipkartRegressionTest.java",
+    "app\\src\\test\\java\\com\\betterchoice\\android\\ZeptoRegressionTest.java",
+    "app\\src\\main\\java\\com\\betterchoice\\android\\Brew.java"
+  ],
+  "resolved": [
+    "app\\build.gradle.kts",
+    "app\\src\\main\\java\\com\\betterchoice\\android\\Allergen.java",
+    "app\\src\\main\\java\\com\\betterchoice\\android\\DailyImpact.java",
+    "app\\src\\main\\java\\com\\betterchoice\\android\\GradeCard.java",
+    "app\\src\\main\\java\\com\\betterchoice\\android\\Nutrition.java",
+    "app\\src\\main\\java\\com\\betterchoice\\android\\NutritionParser.java",
+    "app\\src\\main\\java\\com\\betterchoice\\android\\PackMath.java",
+    "app\\src\\main\\java\\com\\betterchoice\\android\\ProductAnalyzer.java",
+    "app\\src\\main\\java\\com\\betterchoice\\android\\ProductPage.java",
+    "app\\src\\main\\java\\com\\betterchoice\\android\\ProductWatcher.java"
+  ],
+  "result": "3.3.8-personalised-comparisons (43)"
+}

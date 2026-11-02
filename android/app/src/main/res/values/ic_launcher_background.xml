@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Sampled from the logo tile so the adaptive background matches the artwork exactly. -->
+    <color name="ic_launcher_background">#FF002B53</color>
+</resources>

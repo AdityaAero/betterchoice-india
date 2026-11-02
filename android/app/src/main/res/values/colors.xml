@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Light palette. Android picks values-night/colors.xml instead when the phone is in dark mode, so
+  every screen follows the device setting without the app asking or storing a preference.
+  Band colours (A/B/C) live in BubbleStyle: they carry meaning, so they stay the same in both modes.
+-->
+<resources>
+    <color name="bc_ink">#FF163428</color>
+    <color name="bc_muted">#FF5D6F64</color>
+    <color name="bc_paper">#FFF6F5EF</color>
+    <color name="bc_surface">#FFFFFFFF</color>
+    <color name="bc_line">#FFDCE2D6</color>
+    <color name="bc_green">#FF236041</color>
+    <color name="bc_on_green">#FFFFFFFF</color>
+    <color name="bc_lime">#FFE0EEAA</color>
+    <color name="bc_lime_deep">#FFC8DD90</color>
+    <color name="bc_sage">#FFBECE9D</color>
+    <color name="bc_warm">#FFE08E67</color>
+    <color name="bc_disabled">#FFCED3CE</color>
+    <color name="bc_disabled_text">#FF707872</color>
+    <!-- Green text for what is good about a product (contrast above 4.5:1 on the card). -->
+    <color name="bc_good">#FF15803D</color>
+    <!-- Dark red text for what counts against a product (contrast above 6:1 on the white card). -->
+    <color name="bc_bad">#FFB71C1C</color>
+    <color name="bc_warning">#FF9E3125</color>
+    <!-- The first-page artwork is light in both themes; the system launch screen matches it
+         so there is no dark-to-light flash before the splash appears. -->
+    <color name="bc_splash_background">#FFFEFDFC</color>
+</resources>

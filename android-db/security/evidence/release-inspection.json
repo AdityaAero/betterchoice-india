@@ -1,0 +1,48 @@
+{
+  "apk": "app\\build\\outputs\\apk\\release\\app-release-unsigned.apk",
+  "sha256": "b25db9b484a5ae58a7de43585da700ec5d5514f8efecb45b514f6743e7dc0f86",
+  "permissions": [
+    "android.permission.INTERNET",
+    "android.permission.HIDE_OVERLAY_WINDOWS",
+    "android.permission.QUERY_ADVANCED_PROTECTION_MODE",
+    "android.permission.ACCESS_NETWORK_STATE",
+    "com.betterchoice.india.db.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+  ],
+  "unit_tests": {
+    "tests": 446,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "checks": {
+    "minimum_android_12": true,
+    "target_api_37": true,
+    "permission_allowlist": true,
+    "version_4_package": true,
+    "not_debuggable": true,
+    "service_binding_protected": true,
+    "non_accessibility_tool": true,
+    "no_gesture_or_key_filter_capability": true,
+    "accessibility_limited_to_supported_apps": true,
+    "no_screenshot_capability": true,
+    "cleartext_denied": true,
+    "only_launcher_link_target_and_protected_service_exported": true,
+    "only_allowlisted_components": true,
+    "library_components_not_exported": true,
+    "backup_disabled": true,
+    "all_storage_domains_excluded_from_both_backup_modes": true,
+    "no_bundled_catalogue": true,
+    "no_test_libraries_in_release_dex": true,
+    "no_test_sign_in_in_release_dex": true,
+    "no_diagnostic_messages_in_release_dex": true,
+    "native_code_for_64_and_32_bit_phones": true,
+    "native_code_ready_for_16_kb_pages": true,
+    "unit_tests_pass": true,
+    "gradle_distribution_checksum_pinned": true,
+    "dependency_verification_and_locks_exist": true
+  },
+  "limitations": [
+    "Static/host checks do not prove device lifecycle, obscured-window enforcement or 500ms latency.",
+    "Signature verification with the owner certificate is required before distribution."
+  ]
+}

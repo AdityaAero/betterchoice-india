@@ -1,0 +1,42 @@
+{
+  "calculator": "Python Decimal; independent of Android implementation",
+  "formula": "per100 * quantity / 100; percent = amount * 100 / matching reference",
+  "cases": [
+    {
+      "nutrient": "sodium",
+      "per100": "2025.64",
+      "portion": "20",
+      "unit": "mg",
+      "amount": "405.128",
+      "reference": "2000",
+      "percent": "20.2564"
+    },
+    {
+      "nutrient": "sodium",
+      "per100": "2025.64",
+      "portion": "80",
+      "unit": "mg",
+      "amount": "1620.512",
+      "reference": "2000",
+      "percent": "81.0256"
+    },
+    {
+      "nutrient": "added_sugar",
+      "per100": "47.4",
+      "portion": "20.2",
+      "unit": "g",
+      "amount": "9.5748",
+      "reference": "50",
+      "percent": "19.1496"
+    },
+    {
+      "nutrient": "milk_total_sugar",
+      "per100": "4.8",
+      "portion": "200",
+      "unit": "g",
+      "amount": "9.6",
+      "reference": null,
+      "percent": null
+    }
+  ]
+}

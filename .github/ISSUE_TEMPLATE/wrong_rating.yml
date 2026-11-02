@@ -1,0 +1,34 @@
+name: Wrong rating
+description: The colour, a nutrient reading or a swap looks wrong for a product.
+labels: ["rating"]
+body:
+  - type: input
+    id: app
+    attributes:
+      label: Shopping app
+      placeholder: Blinkit, Zepto, Instamart, Zomato or Flipkart
+    validations:
+      required: true
+  - type: input
+    id: product
+    attributes:
+      label: Product name and pack size
+    validations:
+      required: true
+  - type: textarea
+    id: shown
+    attributes:
+      label: What BetterChoice showed
+      description: Colour, the figures on the card, and any swap shown.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What the pack says
+      description: The per-100 g/ml figures from the physical pack. Attach a photo of the nutrition table if you can (no personal details, please).
+  - type: input
+    id: version
+    attributes:
+      label: App version
+      placeholder: e.g. 3.9.0

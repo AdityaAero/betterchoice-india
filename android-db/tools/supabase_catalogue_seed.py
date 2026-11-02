@@ -1,0 +1,150 @@
+"""Writes the Supabase seed for public.catalogue_products and public.catalogue_recommendations
+(migration 20261001190000_catalogue_off_india.sql) from the catalogue build and the coverage harness.
+
+Inputs (../../catalogue_build/off_india/): products_2025.json, products_graded.jsonl, recommendations.csv,
+earlier_dates.json; and the app catalogue for earlier products kept because their labels date from 2025.
+Outputs (supabase/seed/): catalogue_off_india_products_NNN.sql, catalogue_off_india_recommendations_NNN.sql,
+and the same rows as CSV for the dashboard's import. Re-running updates figures but never a review decision.
+
+Rows that would break a table constraint (bad barcode check digit, out-of-range figure) are left out and listed.
+
+Usage:  python tools/supabase_catalogue_seed.py
+"""
+import csv
+import datetime
+import json
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+BUILD = ROOT.parents[1] / 'catalogue_build' / 'off_india'
+SEED = ROOT / 'supabase' / 'seed'
+APP = ROOT / 'app/src/main/assets/catalogue/swaps_v1.json'
+CHUNK = 400
+COLUMNS = ['gtin', 'brand', 'name', 'swap_group', 'grouped_by', 'fssai_category', 'infant_food', 'is_beverage', 'energy_kcal',
+           'sugars_g', 'added_sugars_g', 'saturated_fat_g', 'total_fat_g', 'trans_fat_g', 'sodium_mg', 'protein_g', 'fibre_g',
+           'carbohydrate_g', 'serving_g', 'pack_size', 'pack_unit', 'ingredients', 'contains', 'may_contain', 'veg', 'halal',
+           'nutri_score_letter', 'nutri_score_score', 'band', 'label_date', 'off_created', 'source_url']
+LIMITS = dict(energy_kcal=950, sugars_g=100, added_sugars_g=100, saturated_fat_g=100, total_fat_g=100, trans_fat_g=100,
+              sodium_mg=40000, protein_g=100, fibre_g=100, carbohydrate_g=100)
+REC_COLUMNS = ['swap_group', 'profile_choice', 'rank', 'gtin', 'qualifies_for', 'originals', 'why']
+
+
+def gtin_ok(code):
+    """GS1 check digit over the code padded to 14 digits, as public.bc_gtin_check."""
+    if not code or not code.isdigit() or not 8 <= len(code) <= 14:
+        return False
+    v = code.rjust(14, '0')
+    total = sum(int(v[13 - i]) * (3 if i % 2 == 1 else 1) for i in range(1, 14))
+    return (10 - total % 10) % 10 == int(v[13])
+
+
+def sql(v):
+    if v is None:
+        return 'null'
+    if isinstance(v, bool):
+        return 'true' if v else 'false'
+    if isinstance(v, (int, float)):
+        return repr(round(v, 2)) if isinstance(v, float) else str(v)
+    if isinstance(v, list):
+        return "'{}'::text[]" if not v else 'array[%s]::text[]' % ', '.join(sql(str(x)) for x in v)
+    return "'" + str(v).replace("'", "''") + "'"
+
+
+def row_for(rec, graded, label_date, created):
+    p = rec.get('per100') or {}
+    g = graded.get(rec['gtin'], {})
+    unit = rec.get('unit') if rec.get('unit') in ('g', 'ml') else None
+    return dict(gtin=rec['gtin'], brand=(rec.get('brand') or '').strip()[:120], name=(rec.get('name') or '').strip()[:200],
+                swap_group=rec.get('group') or None, grouped_by=rec.get('grouped_by'), fssai_category=g.get('fssai_category'),
+                infant_food=bool(g.get('infant_food')), is_beverage=bool(rec.get('beverage')), energy_kcal=p.get('energy_kcal'),
+                sugars_g=p.get('sugars_g'), added_sugars_g=p.get('added_sugars_g'), saturated_fat_g=p.get('saturated_fat_g'),
+                total_fat_g=p.get('total_fat_g'), trans_fat_g=p.get('trans_fat_g'), sodium_mg=p.get('sodium_mg'),
+                protein_g=p.get('protein_g'), fibre_g=p.get('fibre_g'), carbohydrate_g=p.get('carbohydrate_g'),
+                serving_g=rec.get('serving_g') if (rec.get('serving_g') or 0) > 0 else None,
+                pack_size=rec.get('pack') if (rec.get('pack') or 0) > 0 else None, pack_unit=unit,
+                ingredients=rec.get('ingredients') or None, contains=rec.get('contains') or [],
+                may_contain=rec.get('may_contain') or [], veg=rec.get('veg'), halal=bool(rec.get('halal')),
+                nutri_score_letter=g.get('letter'), nutri_score_score=g.get('score'), band=g.get('band'),
+                label_date=label_date, off_created=created, source_url=rec.get('source_url'))
+
+
+def problem(row):
+    if not gtin_ok(row['gtin']):
+        return 'barcode check digit'
+    if not row['brand'] or len(row['name']) < 2:
+        return 'no brand or name'
+    for k, hi in LIMITS.items():
+        if row[k] is not None and not 0 <= row[k] <= hi:
+            return '%s out of range' % k
+    if not row['label_date'] or row['label_date'] < '2025-01-01':
+        return 'label before 2025'
+    if not (row['source_url'] or '').startswith('https://world.openfoodfacts.org/product/'):
+        return 'no source link'
+    return None
+
+
+def write_chunks(prefix, table, columns, rows, conflict, update):
+    for old in SEED.glob(prefix + '_*.sql'):
+        old.unlink()
+    for i in range(0, len(rows), CHUNK):
+        part = rows[i:i + CHUNK]
+        lines = ['-- %s rows %d-%d of %d. Generated by tools/supabase_catalogue_seed.py; Open Food Facts data, ODbL.'
+                 % (table, i + 1, i + len(part), len(rows)),
+                 'insert into %s (%s) values' % (table, ', '.join(columns))]
+        lines.append(',\n'.join('(' + ', '.join(sql(r[c]) for c in columns) + ')' for r in part))
+        lines.append('on conflict (%s) do update set %s;' % (conflict, ', '.join('%s = excluded.%s' % (c, c) for c in update)))
+        (SEED / ('%s_%03d.sql' % (prefix, i // CHUNK + 1))).write_text('\n'.join(lines) + '\n', encoding='utf-8')
+
+
+def main():
+    SEED.mkdir(parents=True, exist_ok=True)
+    products = json.loads((BUILD / 'products_2025.json').read_text(encoding='utf-8'))
+    graded = {}
+    with open(BUILD / 'products_graded.jsonl', encoding='utf-8') as f:
+        for line in f:
+            g = json.loads(line)
+            graded[g['gtin']] = g
+    dates = json.loads((BUILD / 'earlier_dates.json').read_text(encoding='utf-8')) if (BUILD / 'earlier_dates.json').exists() else {}
+    day = lambda ts: datetime.datetime.fromtimestamp(ts, datetime.timezone.utc).strftime('%Y-%m-%d') if ts else None
+    rows, left_out = {}, []
+    for rec in products:
+        row = row_for(rec, graded, rec.get('label_date'), rec.get('off_created'))
+        why = problem(row)
+        (left_out.append((rec['gtin'], rec.get('name'), why)) if why else rows.__setitem__(row['gtin'], row))
+    for rec in json.loads(APP.read_text(encoding='utf-8'))['products']:     # earlier products kept for 2025 labels
+        if rec.get('gtin') in rows or rec.get('gtin') not in dates:
+            continue
+        d = dates[rec['gtin']]
+        row = row_for(rec, graded, day(max(d.get('created_t') or 0, d.get('last_image_t') or 0)), day(d.get('created_t')))
+        why = problem(row)
+        (left_out.append((rec['gtin'], rec.get('name'), why)) if why else rows.__setitem__(row['gtin'], row))
+
+    recs = []
+    with open(BUILD / 'recommendations.csv', encoding='utf-8', newline='') as f:
+        for r in csv.DictReader(f):
+            if r['gtin'] not in rows:
+                continue
+            recs.append(dict(swap_group=r['group'], profile_choice=r['profile_choice'], rank=int(r['rank']), gtin=r['gtin'],
+                             qualifies_for=int(r['qualifies_for']), originals=int(r['originals']), why=r['why'] or None))
+
+    product_rows = sorted(rows.values(), key=lambda r: r['gtin'])
+    data_columns = [c for c in COLUMNS if c != 'gtin']
+    write_chunks('catalogue_off_india_products', 'public.catalogue_products', COLUMNS, product_rows, 'gtin', data_columns)
+    write_chunks('catalogue_off_india_recommendations', 'public.catalogue_recommendations', REC_COLUMNS, recs,
+                 'swap_group, profile_choice, gtin', ['rank', 'qualifies_for', 'originals', 'why'])
+    for name, columns, data in (('catalogue_products.csv', COLUMNS, product_rows), ('catalogue_recommendations.csv', REC_COLUMNS, recs)):
+        with open(SEED / name, 'w', newline='', encoding='utf-8') as f:
+            w = csv.writer(f)
+            w.writerow(columns)
+            for r in data:
+                w.writerow(['{' + ','.join('"%s"' % x.replace('"', '') for x in r[c]) + '}' if isinstance(r[c], list) else r[c]
+                            for c in columns])
+    with open(SEED / 'catalogue_left_out.csv', 'w', newline='', encoding='utf-8') as f:
+        w = csv.writer(f)
+        w.writerow(['gtin', 'name', 'reason'])
+        w.writerows(left_out)
+    print('products %d (left out %d), recommendations %d; files in %s' % (len(product_rows), len(left_out), len(recs), SEED))
+
+
+if __name__ == '__main__':
+    main()

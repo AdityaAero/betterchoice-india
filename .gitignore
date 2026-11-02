@@ -1,0 +1,37 @@
+# Build output and caches
+.gradle/
+.kotlin/
+**/build/
+captures/
+*.iml
+.idea/
+.cxx/
+__pycache__/
+*.pyc
+
+# Local toolchains and machine settings
+.tools/
+local.properties
+
+# Signing material and secrets: never commit
+*.jks
+*.keystore
+*.p12
+*.pem
+*.key
+signing.properties
+.env
+.env.*
+credentials*.txt
+
+# Binaries are published as GitHub Release assets, not in git
+*.apk
+*.aab
+
+# Logs
+*.log
+
+# OS and editor noise
+.DS_Store
+Thumbs.db
+*.swp

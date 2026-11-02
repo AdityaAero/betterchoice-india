@@ -1,0 +1,17 @@
+<resources>
+    <!-- Light theme. values-night/styles.xml replaces this when the phone is in dark mode. -->
+    <style name="Theme.BetterChoice" parent="android:style/Theme.Material.Light.NoActionBar">
+        <item name="android:fontFamily">sans</item>
+        <item name="android:colorAccent">@color/bc_green</item>
+        <item name="android:textColorPrimary">@color/bc_ink</item>
+        <item name="android:textColorSecondary">@color/bc_muted</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowLightNavigationBar">true</item>
+        <item name="android:statusBarColor">@color/bc_paper</item>
+        <item name="android:navigationBarColor">@color/bc_paper</item>
+        <item name="android:windowBackground">@color/bc_paper</item>
+        <item name="android:windowActionModeOverlay">true</item>
+        <!-- Android 12+ system launch screen blends into the branded splash (same paper colour). -->
+        <item name="android:windowSplashScreenBackground">@color/bc_splash_background</item>
+    </style>
+</resources>

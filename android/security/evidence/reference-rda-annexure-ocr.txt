@@ -1,0 +1,154 @@
+=== page page4.jpg (rotated 90, x2), rows ===
+009 | 002 | 009 | 009 | 009 | 009 | G09
+1000 | 950 | 30 | 390 | 510 | 630 | 086 | 068 | 000 | 860
+B12 | +10
+10.26
+P2.5
+35670
+upor | 150 | 087 | OST | 051 | 150 | 150
+SUMMARY OF RDA FORINDIANS -2020
+13 2 | 143 | 128
+Magae | 385 | 215 | 270 | 355 | 405
+Cal | 1080 | 000 | 1000 | 00 | 002 | 00S | 550 | 050 | 058 | 1000 | 1050
+130 | 130 | 130 | 130 | 130 | 130 | 130 | 10 | 130 | 130
+-95 | 15.9 | 4332 | 554 | 462
+Baly | 18.3 | 253 | 962 | 557
+Sedenlary | Metleato | Pregran | 7-10m | 0-6 m* | 6-1Zm | 13Y | 79 | 10-12 | 10-12Y | 13157 | AS591
+SATE | SHD
+=== page page5.jpg (rotated 0, x2), rows ===
+AnnerureLA
+SUMMARYOTREOMNIENDEINAKESHOR
+OTHERMNERAISANDTRACEELEMENTS
+SNo. | Minerais/Trace Hlement | Recommended irtake
+Phosphorous | 1000mg/day
+Sodium | 2000 mg/day
+Potassium | 3500 mg/day
+Coppar | 2 mg/day
+Manganese | 4 mg/day
+Chromnm | 50 μg/day
+Selemm | 40 μg/day
+[Rer Reconmended dletany alonncrs and estimaled axeragcnequnenents: amricnt requirements for indians -2620]
+=== page page6.jpg (rotated 90, x2), rows ===
+Annexure IB
+Collated information on RDA for nutricnts not listed under Annexure TA
+S. | Vitamin | RDA per day
+No.
+Vitamin E* | 7.S-10 mg a-tocopherol
+Vitamin K* (Kl K2) | 55 μg
+Biotin** | 30 μg
+Pantothenic acid** | 5 mg
+S. No. | Mineral | RDA per day
+Chloride#(AD) | Children 1 to 3 y: 1500 mg
+Children 4 to 8 y1900 mg
+Men & Women (9 y and above): 1800 to 2300 mg
+Pregnant &Lactating women:2300 mg
+2. | Molybdenum** | 45 1g
+IHlCMR (Recammended dretany allownncet and estinultd average ruqunremends: nutrient reruirenents for ndians 2020) tCodex
+(CAGl 2 1985- Cuidelnes on uutrition labelling (applicd onty for individuuls older than 36 months) AFood ant Nuerilion Baard.
+Insfitute of Medicine National Academies: AT Acequate Intukel
+Note 1: In ease age wise RDAs are available, then RDA values for men and wonen (sedentary work) may be
+considered as standard reference or else the single value will be applicable across all age groups,
+Purpose, Pumctional lood and Novel Pood) Regulations. 2ol6 shall not be applicable to the infants up to the
+age of 24 months. Hence RDAs mentioned in this document Tor the age group 0 to 24 months wil not be
+applicable for the said regulations.
+Note 3: Convetsion imits (referrcd from report of Expert Conmittec or ICMR which specifies TUl of
+nieronutrient for Indian poputation)
+Vitanin A: lμg - 3.33 IU
+Vitamin D: g 40 Il
+Vitainin E: I mg - 1 ,5 (U d-alpha-tocopherol, or 1 1 1U dl-alpha-tocophcrol
+Folic acid: Tμg 1.7 DFE (Dietary Folate Equivalent)
+=== reference-rda-annexure-ia-minerals.png (upright, x2.5), one row per population group ===
+SUNIVARY OFRDA FORINDIANS
+By | Pratan | Todine
+(mg) | Cong
+54.0 | 130 | 385 | 150 | 18
+23
+14
+130 | 1000 | 325 | 29 | 13 2 | 150
+195
+10 | +2.0 | 173 | 385 | 40 | 145 | 250 | 2.0
+trimector)
+200
+120Q | 280
+0132 | 200 | 2.1
+100 | 02
+85 | 10.5 | 002 | 130 | 0.4
+117 | 11.7 | 500 | 135 | 0N7
+183 | 2318 | 159 | 130 | 130 | G50 | 550 | 155 | 215 | 50 | 120 | 120
+30.4 | 849 | 50.5 | 130 | 130 | 850 | 850 | 1000 | 255 | 355 | 270 | 16 | 85 | 8.5 | 143 | 130 | AS0 | 150 | 19
+49.6 | 432 | 109 | 325 | 30 | 128 | 150
+644 | 130 | 1050 | 405 | 26 | 150 | 22
+55.7 | 46 2 | 130 | 1050 | 835 | 32 | 142 | 150
+=== reference-rda-annexure-ia-vitamins.png (upright, x2.5), one row per population group ===
+S-2020
+B12
+(eng)
+20
+18 | 2.4 | 1000 | 600
+32
+19 | 220 | 2.5 | 840
+12.5 | 243 | 570 | -0.25
+1026 | 330
++1 | 950
+29 | +01.7
+01 | 12 | 20 | 350
+0.6 | 06 | 330
+60 | 110
+12 | 510 | 600
+25 | 630
+20 | 25 | 54 | 778
+19 | 19 | 225 | 600
+19 | 26 | 25 | 72 | 930
+1G | 22 | 245 | 890 | 009
+1000 | 600
+23 | 270 | 25 | 860 | 000
+equirements for Indians - 20201
+=== reference-rda-annexure-ia-minerals.png, strips of 65 px every 25 px, one nutrient per strip, values in group order ===
+strip y0-65: 14 | 22 | 2.0 | 2.1 | 02 | 0.4 | 22 | ent requir
+strip y25-90: DIA | 18 | 14 | 22 | 2.0 | 2.1 | 02 | 0.4 | 22 | titrlent re
+strip y75-140: ine | 50 | 50 | 80 | 30 | 20 | 20 | 50 | 50
+strip y100-165: Todine | 150 | 150 | 250 | 280 | 100 | 130 | 06 | 120 | 120 | 1S0 | AS0 | 150 | 150 | 150 | areniens
+strip y125-190: od | 156 | 257 | 120 | requreni
+strip y150-215: DA | 32 | 45 | 2.5 | 4.5 | 43 | 42 | ags requn
+strip y175-240: RDA | 132 | 145 | 14 | 3.0 | 45 | 8.5 | 85 | 143 | 126 | 142 | averags re
+strip y200-265: ted averas
+strip y225-290: OF | 29 | 40 | 30 | 32 | mated ay
+strip y250-315: 40 | 23 | 30 | 32 | estmate
+strip y275-340: and estim
+strip y300-365: 385 | 325 | 75 | 135 | 155 | 215 | 270 | 255 | 325 | 405 | 335 | nces and
+strip y325-390: SUME | 385 | 325 | 135 | 155 | 215 | 270 | 255 | 325 | 405 | 335 | wances 1
+strip y350-415: 50 | allowanc
+strip y375-440: 1000 | 1080 | 300 | 500 | 550 | G50 | 850 | 850 | 1000 | 1050 | 1050 | ctany allou
+strip y400-465: Cal | 1000 | 1088 | 300 | 500 | 550 | G50 | 850 | 850 | 1000 | 1050 | 1050 | I dietanya
+strip y425-490: 30 | 30 | 30 | nded dieta
+strip y450-515: 130 | 130 | 17S | 200 | 200 | 130 | 130 | 130 | 130 | 130 | Imen ded
+strip y475-540: 13 | 20 | 130 | commend
+strip y500-565: tan | 2.0 | sstar | Recomn
+strip y525-590: Pratan | 540 | 457 | 195 | 02.0 | trimestar) | -165 | 18 | 117 | 15.9 | 2313 | 328 | 432 | 402 | Ref Raco
+strip y550-615: Prata | imes | 16 | 11. | 231
+strip y575-640: 3.3
+strip y600-665: 10 | 85 | 117 | 183 | 25 | 34.9 | 30.4 | 49.6 | 55.7
+=== reference-rda-annexure-ia-vitamins.png, strips of 60 px every 20 px, one nutrient per strip, values in group order ===
+strip y40-100: Aaner | 600 | 009
+strip y60-120: 00 | 600
+strip y80-140: 60 | 60
+strip y100-160: 840 | 900 | 950 | 350 | 350
+strip y120-180: 840 | 500 | 950 | 350
+strip y140-200: 100
+strip y160-220: 80 | 20 | 54
+strip y180-240: 80 | 20
+strip y220-280: B12 | 2.5 | +0.25 | +10 | 12 | 26
+strip y240-300: B12 | 2.5 | +0.25 | +10 | 12 | 26
+strip y280-340: 320 | 70 | 330 | 243 | 270
+strip y300-360: Folat | 300 | 320 | 70 | 330 | 110 | 243 | 270
+strip y320-380: Fol
+strip y340-400: 2.0
+strip y360-420: 2.4 | 23 | 1028 | 1017 | 01 | 06 | 20 | 19 | 2.6 | 2.3 | 201
+strip y380-440: 2.4 | 01 | 06 | 2.0 | 26 | 20201
+strip y400-460: ns -2020
+strip y420-480: 12.5 | 17 | ainns -26
+strip y440-500: 12.5 | 16 | 17 | Indians
+strip y460-520: For Inam
+strip y480-540: .6 | nts for in
+strip y500-560: 20 | 31 | 29 | 19 | 27 | 22 | ments fe
+strip y520-580: 20 | 0.6 | 22 | nienents
